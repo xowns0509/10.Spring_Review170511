@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DI: 이 xml파일(Spring의 설정파일)에서 객체 생성 -->
+	<!-- 이렇게 하면 자바에서 new라는 코딩이 없어진다는 거야 -->
+
+	<!-- 빈 태그의 id: 빈 객체를 구분 할 때 사용하는 이름 -->
+	<!-- 빈 태그의 class : 빈 객체를 생성할 때 사용할 클래스 -->
+	<bean id="greeter" class="chap02.Greeter">
+		<property name="format" value="%s, 안녕하세요!" />
+	</bean>
+
+	<!-- 메인함수나 혹은 다른 자바파일에서 이 id, ko를 갖고 찾아내어 사용하겠지 -->
+	<!-- 또는 name으로 별칭주어 id대신 name으로 불러올 수 있음. -->
+	<!-- 별칭은 name='a,b;c,d' 이런 방식으로 부여, 콤마나 세미콜론이나 동일한 의미임. 여기서 별칭은 총 4개. -->
+	<!-- <bean id="ko" name='a,b;c,d' class="sample1scope.MessageBeanKoImpl" scope="singleton"></bean> -->
+	<!-- 주소를 갖고 있는 놈이 id, 또한 scope=singleton이 기본값 -->
+	<!-- <bean id="en" class="sample1scope.MessageBeanEnlmpl" scope="prototype"></bean> -->
+
+	<!-- 기본값은 scope="singleton". scope="prototype"로 객체마다 메모리 할당 가능. -->
+	<!-- 메모리에 올리는 시점이 달라짐. 싱글톤이냐 프로토타입에 따라. -->
+	<!-- 서버 혹은 어플리케이션이 구동될 때 -->
+	<!-- 싱글톤은 반드시 메모리에 올라와.(심지어 안 불러도) -->
+	<!-- 하지만 프로토타입은 불릴 때 마다 불려져야 되기 때문에. -->
+	<!-- 혹은 몇 번 불릴 지 모르니까. -->
+	<!-- 구동시 en은... 따로 생성한다고 기술하지 않으면 안불려. -->
+
+
+	<!-- 일본어가 필요해? 그럼 여기 위에다 하나 더 추가 해. -->
+
+</beans>
